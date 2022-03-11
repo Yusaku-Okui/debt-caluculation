@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+    <結果>
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+</head>
+<body>
+  <div class="content">
+    <h1>入力結果です！</h1>
+    <p>利回りは保有年数を求めるための数字と考えてください</p>
+  <div id="info">
+    <div class="pure-form pure-form-stacked">
+      <fieldset>
+        <div class="block">
+          <div class="topic"><p>既に発行された債券の利回りは<span>{{ yi }}%</span>です。</p></div>
+          <div class="topic"><p>既に発行された債券の購入価格は<span>{{ pr }}円</span>です。</p></div>
+          <div class="topic"><p>利回りの変化に対する債券金額の反応である金額デュレーションは<span>{{ dur1 }}</span>です。</p></div>
+          <div class="topic"><p>金額デュレーションを債券価格で割った修正デュレーションは<span>{{ dur2 }}</span>です。</p></div>
+          <div class="topic"><p>金利の変動にかかわらず、マコーレのデュレーションで上昇した債券が一定額になる年は<span>{{ dm }}年</span>です。</p></div>
+        </div>
+        <div>
+          <style scoped="">
+            .button-back {
+              color: white;
+              border-radius: 4px;
+              text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+              background: rgb(28, 184, 65);
+              /* this is a green */
+            }
+          </style>
+        </div>
+        <button type="button" onclick="history.back()" class="button-back pure-button">戻る</button>
+      </fieldset>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>
