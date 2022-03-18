@@ -1,6 +1,7 @@
 from flask import Flask, request, redirect
 from flask import render_template
 import calc
+from decimal import *
 
 app = Flask(__name__)
 
@@ -15,19 +16,14 @@ def finished():
     interest = request.form['interest']
     term = request.form['term']
 
-    price = int(price)
-    interest = int(interest)
-    term = int(term)
-
-    def try_check(price, interest, term):
-        if (price == "") or (interest == "") or (term == ""):
-            return False
-
-    if try_check(price, interest, term) == False:
-        return"""
+    if (price == "") or (interest == "") or (term == ""):
+        return """
         <h1>'購入価格、クーポン金額、残存期間を半角の数値で入力してください'</h1>
         <p><a href="/">戻る</a></p>
             """
+    price = int(price)
+    interest = int(interest)
+    term = int(term)
 
 
 

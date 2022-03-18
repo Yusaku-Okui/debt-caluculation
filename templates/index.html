@@ -8,6 +8,7 @@
     integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5"
     crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css" />
+    <script type="text/javascript" src="../static/intcheck.js"></script>
     <title>トップページ</title>
   </head>
   <body>
@@ -20,12 +21,12 @@
           <legend>購入価格と債券の残りの期間と額面100円*利率を掛けた利息クーポンを数字で入力してね</legend>
           <div class="block">
             <label for="price">額面100円あたりの購入価格</label>
-            <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" name="price" id="price" autocomplete="off" placeholder="既債の価格">
-            <label for="term">残存期間</label>
-            <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]+/i/,'')" name="term" id="term" autocomplete="off"
+            <input type="text" name="price" id="price" onchange="intcheck()" autocomplete="off" placeholder="既債の価格">
+            <label for="term">年数</label>
+            <input type="text"  name="term" id="term" onchange="intcheck()" autocomplete="off"
             placeholder="満期までの残り期間">
-            <label for="interest">利息クーポンの金額(円)</label>
-            <input type="text" onKeyup="this.value=this.value.replace(/[^0-9]+/i,'')" name="interest" id="interest" autocomplete="off" placeholder="定期的クーポンの金額">
+            <label for="interest">受け取る利息の金額(円)</label>
+            <input type="text" name="interest" id="interest" onchange="intcheck()" autocomplete="off" placeholder="定期的クーポンの金額">
           </div>
           <div>
             <style scoped="">

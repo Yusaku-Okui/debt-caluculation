@@ -7,14 +7,6 @@ class YieldRatio:
         self.term = term
 
     def y_content(self):
-        """
-        if type(self.price) not in (int, float):
-            return msg("金額は数値で入力してください")
-        if type(self.term) != int:
-            return msg("年数は数値で入力してください")
-        if type(self.interest) not in (int, float):
-            return msg("年数は数値で入力してください")
-        """
         l = [self.interest for i in range(self.term-1)]
         l2 = [-self.price,100+self.interest]
         l2[1:1] = l
@@ -23,21 +15,15 @@ class YieldRatio:
 
 #購入価格
 import numpy as np
+import numpy.polynomial.polynomial as pol
 class P_Func(YieldRatio):
     def p_content(self):
-        """
-        if type(self.y_content()) not in (int, float):
-            return msg("金額は数値で入力してください")
-        """
         l = np.geomspace(self.interest/(1+self.y_content()), self.interest/((1+self.y_content())**(self.term-1)), num=self.term-1).sum()
         lt = (self.interest + 100) / ((1 + self.y_content()) ** self.term)
         pr = round(l + lt,4)
         return pr
 
 # 金額デュレーション
-# 金額デュレーション
-import numpy as np
-import numpy.polynomial.polynomial as pol
 import sympy as sym
 from sympy import  Symbol, diff
 class D_Dur(P_Func):
